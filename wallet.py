@@ -93,8 +93,10 @@ def asset_detail():
 def asset_detail_sapi():
     return
 
+
 def dust_transfer():
     return
+
 
 def asset_dividend_record():
     return
