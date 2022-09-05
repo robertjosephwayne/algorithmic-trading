@@ -51,3 +51,29 @@ class FtxClient:
             if not data['success']:
                 raise Exception(data['error'])
             return data['result']
+
+    # Account
+
+    def get_account_information(self):
+        return self._get('account')
+
+    # POST /historical_balances/requests
+    # TODO: This method is not implemented yet.
+    def request_historical_balances_and_positions_snapshot():
+        return
+
+    # GET /historical_balances/requests/<request_id>
+    # TODO: This method is not implemented yet.
+    def get_historical_balances_and_positions_snapshot():
+        return
+
+    def get_all_historical_balances_and_positions_snapshot(self):
+        return self._get('historical_balances/requests')
+
+    def get_positions(self):
+        return self._get('positions')
+
+    # POST /account/leverage
+    # TODO: This method is not implemented yet.
+    def change_account_leverage():
+        return
