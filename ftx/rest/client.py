@@ -83,10 +83,8 @@ class FtxClient:
     def request_quote():
         return
 
-    # GET /otc/quotes/{quoteId}
-    # TODO: This method is not implemented yet.
-    def get_quote_status():
-        return
+    def get_quote_status(self, quote_id):
+        return self._get(f'otc/quotes/{quote_id}')
 
     # POST /otc/quotes/{quote_id}/accept
     # TODO: This method is not implemented yet.
