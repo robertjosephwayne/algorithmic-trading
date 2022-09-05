@@ -62,10 +62,8 @@ class FtxClient:
     def request_historical_balances_and_positions_snapshot():
         return
 
-    # GET /historical_balances/requests/<request_id>
-    # TODO: This method is not implemented yet.
-    def get_historical_balances_and_positions_snapshot():
-        return
+    def get_historical_balances_and_positions_snapshot(self, request_id):
+        return self._get(f'historical_balances/requests/{request_id}')
 
     def get_all_historical_balances_and_positions_snapshot(self):
         return self._get('historical_balances/requests')
