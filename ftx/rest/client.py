@@ -629,30 +629,25 @@ class FtxClient:
     def get_all_subaccounts():
         return
 
-
     # POST /subaccounts
     # TODO: This method is not implemented yet.
     def create_subaccount():
         return
-
 
     # POST /subaccounts/update_name
     # TODO: This method is not implemented yet.
     def change_subaccount_name():
         return
 
-
     # DELETE /subaccounts
     # TODO: This method is not implemented yet.
     def delete_subaccount():
         return
 
-
     # GET /subaccounts/{nickname}/balances
     # TODO: This method is not implemented yet.
     def get_subaccount_balances():
         return
-
 
     # POST /subaccounts/transfer
     # TODO: This method is not implemented yet.
