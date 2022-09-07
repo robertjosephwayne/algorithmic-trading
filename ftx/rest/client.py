@@ -172,8 +172,14 @@ class FtxClient:
 
     # GET /indexes/{market_name}/candles?resolution={resolution}&start_time={start_time}&end_time={end_time}
     # TODO: This method is not implemented yet.
-    def get_historical_index():
-        return
+    def get_historical_index(self, market_name, resolution, start_time = None, end_time = None):
+        endpoint = f'indexes/{market_name}/candles'
+        params = {
+            'resolution': resolution,
+            'start_time': start_time,
+            'end_time': end_time
+        }
+        return self._get(endpoint, params)
 
     # GET /index_constituents/{underlying}
     # TODO: This method is not implemented yet.
