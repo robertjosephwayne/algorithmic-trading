@@ -166,10 +166,9 @@ class FtxClient:
         endpoint = f'indexes/{index_name}/weights'
         return self._get(endpoint)
 
-    # GET /expired_futures
-    # TODO: This method is not implemented yet.
-    def get_expired_futures():
-        return
+    def get_expired_futures(self):
+        endpoint = 'expired_futures'
+        return self._get(endpoint)
 
     # GET /indexes/{market_name}/candles?resolution={resolution}&start_time={start_time}&end_time={end_time}
     # TODO: This method is not implemented yet.
