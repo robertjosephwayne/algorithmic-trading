@@ -193,10 +193,13 @@ class FtxClient:
         endpoint = f'lt/{token_name}'
         return self._get(endpoint)
 
-    # GET /lt/balances
-    # TODO: This method is not implemented yet.
-    def get_leveraged_token_balances():
-        return
+    def get_leveraged_token_balances(self, token, balance):
+        endpoint = 'lt/balances'
+        params = {
+            'token': token,
+            'balance': balance
+        }
+        return self._get(endpoint, params)
 
     # GET /lt/creations
     # TODO: This method is not implemented yet.
