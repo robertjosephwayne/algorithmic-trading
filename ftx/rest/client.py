@@ -149,10 +149,9 @@ class FtxClient:
         endpoint = f'futures/{future_name}'
         return self._get(endpoint)
 
-    # GET /futures/{future_name}/stats
-    # TODO: This method is not implemented yet.
-    def get_future_stats():
-        return
+    def get_future_stats(self, future_name):
+        endpoint = f'futures/{future_name}/stats'
+        return self._get(endpoint)
 
     # GET /funding_rates
     # TODO: This method is not implemented yet.
