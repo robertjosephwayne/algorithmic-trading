@@ -153,10 +153,14 @@ class FtxClient:
         endpoint = f'futures/{future_name}/stats'
         return self._get(endpoint)
 
-    # GET /funding_rates
-    # TODO: This method is not implemented yet.
-    def get_funding_rates():
-        return
+    def get_funding_rates(self, start_time = None, end_time = None, future = None):
+        endpoint = 'funding_rates'
+        params = {
+            'start_time': start_time,
+            'end_time': end_time,
+            'future': future
+        }
+        return self._get(endpoint, params)
 
     # GET /indexes/{index_name}/weights
     # TODO: This method is not implemented yet.
