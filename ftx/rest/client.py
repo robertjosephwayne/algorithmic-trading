@@ -217,10 +217,9 @@ class FtxClient:
         endpoint = f'lt/{token_name}/redeem'
         return self._post(endpoint)
 
-    # GET /etfs/rebalance_info
-    # TODO: This method is not implemented yet.
-    def request_etf_rebalance_info():
-        return
+    def request_etf_rebalance_info(self):
+        endpoint = 'etfs/rebalance_info'
+        return self._get(endpoint)
     
     # Markets
 
