@@ -130,10 +130,14 @@ class FtxClient:
 
     # Funding Payments
 
-    # GET /funding_payments
-    # TODO: This method is not implemented yet.
-    def get_funding_payments():
-        return
+    def get_funding_payments(self, start_time = None, end_time = None, future = None):
+        endpoint = 'funding_payments'
+        params = {
+            'start_time': start_time,
+            'end_time': end_time,
+            'future': future
+        }
+        return self._get(endpoint, params)
     
     # Futures
 
