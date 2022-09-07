@@ -73,7 +73,8 @@ class FtxClient:
         return self._get(endpoint, params)
 
     def get_all_historical_balances_and_positions_snapshot(self):
-        return self._get('historical_balances/requests')
+        endpoint = 'historical_balances/requests'
+        return self._get(endpoint)
 
     def get_positions(self, show_avg_price):
         endpoint = 'positions'
