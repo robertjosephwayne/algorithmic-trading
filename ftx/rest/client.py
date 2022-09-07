@@ -101,8 +101,12 @@ class FtxClient:
         }
         return self._post(endpoint, payload)
 
-    def get_quote_status(self, quote_id):
-        return self._get(f'otc/quotes/{quote_id}')
+    def get_quote_status(self, quote_id, market = None):
+        endpoint = f'otc/quotes/{quote_id}'
+        params = {
+            'market': market
+        }
+        return self._get(endpoint, params)
 
     # POST /otc/quotes/{quote_id}/accept
     # TODO: This method is not implemented yet.
