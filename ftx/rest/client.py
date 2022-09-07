@@ -249,10 +249,14 @@ class FtxClient:
         }
         return self._get(endpoint, params)
 
-    # GET /markets/{market_name}/candles?resolution={resolution}&start_time={start_time}&end_time={end_time}
-    # TODO: This method is not implemented yet.
-    def get_historical_prices():
-        return
+    def get_historical_prices(self, market_name, resolution, start_time = None, end_time = None):
+        endpoint = f'markets/{market_name}/candles'
+        params = {
+            'resolution': resolution,
+            'start_time': start_time,
+            'end_time': end_time
+        }
+        return self._get(endpoint, params)
     
     # NFTs
 
