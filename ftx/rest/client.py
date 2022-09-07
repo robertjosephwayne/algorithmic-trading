@@ -234,10 +234,12 @@ class FtxClient:
         }
         return self._get(endpoint, params)
 
-    # GET /markets/{market_name}/orderbook?depth={depth}
-    # TODO: This method is not implemented yet.
-    def get_orderbook():
-        return
+    def get_orderbook(self, market_name, depth = None):
+        endpoint = f'markets/{market_name}/orderbook'
+        params = {
+            'depth': depth
+        }
+        return self._get(endpoint, params)
 
     # GET /markets/{market_name}/trades
     # TODO: This method is not implemented yet.
