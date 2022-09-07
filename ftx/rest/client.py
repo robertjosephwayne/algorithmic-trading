@@ -117,10 +117,16 @@ class FtxClient:
     
     # Fills
 
-    # GET /fills?market={market}
-    # TODO: This method is not implemented yet.
-    def get_fills():
-        return
+    def get_fills(self, market = None, start_time = None, end_time = None, order = None, order_id = None):
+        endpoint = 'fills'
+        params = {
+            'market': market,
+            'start_time': start_time,
+            'end_time': end_time,
+            'order': order,
+            'orderId': order_id
+        }
+        return self._get(endpoint, params)
 
     # Funding Payments
 
