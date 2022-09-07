@@ -213,10 +213,9 @@ class FtxClient:
         endpoint = 'lt/redemptions'
         return self._get(endpoint)
 
-    # POST /lt/{token_name}/redeem
-    # TODO: This method is not implemented yet.
-    def request_leveraged_token_redemption():
-        return
+    def request_leveraged_token_redemption(self, token_name):
+        endpoint = f'lt/{token_name}/redeem'
+        return self._post(endpoint)
 
     # GET /etfs/rebalance_info
     # TODO: This method is not implemented yet.
