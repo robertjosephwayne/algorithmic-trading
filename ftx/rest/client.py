@@ -75,8 +75,12 @@ class FtxClient:
     def get_all_historical_balances_and_positions_snapshot(self):
         return self._get('historical_balances/requests')
 
-    def get_positions(self):
-        return self._get('positions')
+    def get_positions(self, show_avg_price):
+        endpoint = 'positions'
+        params = {
+            'showAvgPrice': show_avg_price
+        }
+        return self._get(endpoint, params)
 
     # POST /account/leverage
     # TODO: This method is not implemented yet.
