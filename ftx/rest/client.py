@@ -82,10 +82,12 @@ class FtxClient:
         }
         return self._get(endpoint, params)
 
-    # POST /account/leverage
-    # TODO: This method is not implemented yet.
-    def change_account_leverage():
-        return
+    def change_account_leverage(self, leverage):
+        endpoint = 'account/leverage'
+        payload = {
+            'leverage': leverage
+        }
+        return self._post(endpoint, payload)
     
     # Convert
 
