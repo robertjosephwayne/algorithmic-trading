@@ -223,10 +223,9 @@ class FtxClient:
     
     # Markets
 
-    # GET /markets
-    # TODO: This method is not implemented yet.
-    def get_markets():
-        return
+    def get_markets(self):
+        endpoint = 'markets'
+        return self._get(endpoint)
 
     # GET /markets/{market_name}
     # TODO: This method is not implemented yet.
