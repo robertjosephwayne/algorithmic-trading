@@ -141,10 +141,9 @@ class FtxClient:
     
     # Futures
 
-    # GET /futures
-    # TODO: This method is not implemented yet.
-    def list_all_futures():
-        return
+    def list_all_futures(self):
+        endpoint = 'futures'
+        return self._get(endpoint)
 
     # GET /futures/{future_name}
     # TODO: This method is not implemented yet.
