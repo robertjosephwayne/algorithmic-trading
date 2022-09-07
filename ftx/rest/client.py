@@ -189,10 +189,9 @@ class FtxClient:
         endpoint = 'lt/tokens'
         return self._get(endpoint)
 
-    # GET /lt/{token_name}
-    # TODO: This method is not implemented yet.
-    def get_token_info():
-        return
+    def get_token_info(self, token_name):
+        endpoint = f'lt/{token_name}'
+        return self._get(endpoint)
 
     # GET /lt/balances
     # TODO: This method is not implemented yet.
