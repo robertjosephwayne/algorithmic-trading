@@ -241,10 +241,13 @@ class FtxClient:
         }
         return self._get(endpoint, params)
 
-    # GET /markets/{market_name}/trades
-    # TODO: This method is not implemented yet.
-    def get_trades():
-        return
+    def get_trades(self, market_name, start_time = None, end_time = None):
+        endpoint = f'markets/{market_name}/trades'
+        params = {
+            'start_time': start_time,
+            'end_time': end_time
+        }
+        return self._get(endpoint, params)
 
     # GET /markets/{market_name}/candles?resolution={resolution}&start_time={start_time}&end_time={end_time}
     # TODO: This method is not implemented yet.
