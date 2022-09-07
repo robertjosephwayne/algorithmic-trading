@@ -65,8 +65,12 @@ class FtxClient:
         }
         return self._post(endpoint, payload)
 
-    def get_historical_balances_and_positions_snapshot(self, request_id):
-        return self._get(f'historical_balances/requests/{request_id}')
+    def get_historical_balances_and_positions_snapshot(self, request_id, show_avg_price = None):
+        endpoint = f'historical_balances/requests/{request_id}'
+        params = {
+            'showAvgPrice': show_avg_price
+        }
+        return self._get(endpoint, params)
 
     def get_all_historical_balances_and_positions_snapshot(self):
         return self._get('historical_balances/requests')
