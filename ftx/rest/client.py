@@ -57,10 +57,13 @@ class FtxClient:
     def get_account_information(self):
         return self._get('account')
 
-    # POST /historical_balances/requests
-    # TODO: This method is not implemented yet.
-    def request_historical_balances_and_positions_snapshot():
-        return
+    def request_historical_balances_and_positions_snapshot(self, accounts, end_time):
+        endpoint = 'historical_balances/requests'
+        payload = {
+            'accounts': accounts,
+            'endTime': end_time
+        }
+        return self._post(endpoint, payload)
 
     def get_historical_balances_and_positions_snapshot(self, request_id):
         return self._get(f'historical_balances/requests/{request_id}')
