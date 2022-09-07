@@ -92,10 +92,14 @@ class FtxClient:
     
     # Convert
 
-    # POST /otc/quotes
-    # TODO: This method is not implemented yet.
-    def request_quote():
-        return
+    def request_quote(self, from_coin, to_coin, size):
+        endpoint = 'otc/quotes'
+        payload = {
+            'fromCoin': from_coin,
+            'toCoin': to_coin,
+            'size': size
+        }
+        return self._post(endpoint, payload)
 
     def get_quote_status(self, quote_id):
         return self._get(f'otc/quotes/{quote_id}')
