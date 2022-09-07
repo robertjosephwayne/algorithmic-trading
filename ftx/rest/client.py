@@ -185,10 +185,9 @@ class FtxClient:
     
     # Leveraged Tokens
 
-    # GET /lt/tokens
-    # TODO: This method is not implemented yet.
-    def list_leveraged_tokens():
-        return
+    def list_leveraged_tokens(self):
+        endpoint = 'lt/tokens'
+        return self._get(endpoint)
 
     # GET /lt/{token_name}
     # TODO: This method is not implemented yet.
