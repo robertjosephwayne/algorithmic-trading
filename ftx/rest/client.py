@@ -170,8 +170,6 @@ class FtxClient:
         endpoint = 'expired_futures'
         return self._get(endpoint)
 
-    # GET /indexes/{market_name}/candles?resolution={resolution}&start_time={start_time}&end_time={end_time}
-    # TODO: This method is not implemented yet.
     def get_historical_index(self, market_name, resolution, start_time = None, end_time = None):
         endpoint = f'indexes/{market_name}/candles'
         params = {
@@ -181,10 +179,9 @@ class FtxClient:
         }
         return self._get(endpoint, params)
 
-    # GET /index_constituents/{underlying}
-    # TODO: This method is not implemented yet.
-    def get_index_constituents():
-        return
+    def get_index_constituents(self, underlying):
+        endpoint = f'index_constituents/{underlying}'
+        return self._get(endpoint)
     
     # Leveraged Tokens
 
