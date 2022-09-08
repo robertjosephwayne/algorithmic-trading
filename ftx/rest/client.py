@@ -410,10 +410,21 @@ class FtxClient:
         endpoint = 'options/my_requests'
         return self._get(endpoint)
 
-    # POST /options/requests
-    # TODO: This method is not implemented yet.
-    def create_quote_request():
-        return
+    def create_quote_request(self, underlying, type, strike, expiry, side, size, limit_price, hide_limit_price, request_expiry=None, counterparty_id=None):
+        endpoint = 'options/requests'
+        payload = {
+            'underlying': underlying,
+            'type': type,
+            'strike': strike,
+            'expiry': expiry,
+            'side': side,
+            'size': size,
+            'limitPrice': limit_price,
+            'hideLimitPrice': hide_limit_price,
+            'requestExpiry': request_expiry,
+            'counterpartyId': counterparty_id
+        }
+        return self._post(endpoint, payload)
 
     # DELETE /options/requests/{request_id}
     # TODO: This method is not implemented yet.
