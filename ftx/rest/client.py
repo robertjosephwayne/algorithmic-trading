@@ -729,11 +729,15 @@ class FtxClient:
         endpoint = 'spot_margin/lending_info'
         return self._get(endpoint)
 
-    # POST /spot_margin/offers
-    # TODO: This method is not implemented yet.
-    def submit_lending_offer():
-        return
-    
+    def submit_lending_offer(self, coin, size, rate):
+        endpoint = 'spot_margin/offers'
+        payload = {
+            'coin': coin,
+            'size': size,
+            'rate': rate
+        }
+        return self._post(endpoint, payload)
+
     # Staking
 
     # GET /staking/stakes
