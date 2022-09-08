@@ -640,10 +640,9 @@ class FtxClient:
         endpoint = f'orders/{order_id}'
         return self._delete(endpoint)
 
-    # DELETE /twap_orders/{twap_order_id}
-    # TODO: This method is not implemented yet.
-    def cancel_twap_order():
-        return
+    def cancel_twap_order(self, twap_order_id):
+        endpoint = f'twap_orders/{twap_order_id}'
+        return self._delete(endpoint)
 
     # DELETE /orders/by_client_id/{client_order_id}
     # TODO: This method is not implemented yet.
