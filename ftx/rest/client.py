@@ -503,10 +503,12 @@ class FtxClient:
 
     # Orders
 
-    # GET /orders?market={market}
-    # TODO: This method is not implemented yet.
-    def get_open_orders():
-        return
+    def get_open_orders(self, market=None):
+        endpoint = 'orders'
+        params = {
+            'market': market
+        }
+        return self._get(endpoint, params)
 
     # GET /orders/history?market={market}
     # TODO: This method is not implemented yet.
