@@ -389,10 +389,12 @@ class FtxClient:
         endpoint = 'nft/gallery_settings'
         return self._get(endpoint)
 
-    # POST /nft/gallery_settings
-    # TODO: This method is not implemented yet.
-    def edit_gallery_settings():
-        return
+    def edit_gallery_settings(self, public):
+        endpoint = 'nft/gallery_settings'
+        payload = {
+            'public': public
+        }
+        return self._post(endpoint, payload)
 
     # Options
 
