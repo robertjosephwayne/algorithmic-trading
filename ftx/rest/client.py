@@ -356,10 +356,13 @@ class FtxClient:
         }
         return self._get(endpoint, params)
 
-    # GET /nft/withdrawals
-    # TODO: This method is not implemented yet.
-    def get_nft_withdrawals():
-        return
+    def get_nft_withdrawals(self, start_time, end_time):
+        endpoint = 'nft/withdrawals'
+        params = {
+            'start_time	': start_time,
+            'end_time': end_time
+        }
+        return self._get(endpoint, params)
 
     # GET /nft/fills
     # TODO: This method is not implemented yet.
