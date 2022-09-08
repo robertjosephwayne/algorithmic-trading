@@ -461,10 +461,13 @@ class FtxClient:
         endpoint = 'options/positions'
         return self._get(endpoint)
 
-    # GET /options/trades
-    # TODO: This method is not implemented yet.
-    def get_public_options_trades():
-        return
+    def get_public_options_trades(self, start_time=None, end_time=None):
+        endpoint = 'options/trades'
+        params = {
+            'start_time': start_time,
+            'end_time': end_time
+        }
+        return self._get(endpoint, params)
 
     # GET /options/fills
     # TODO: This method is not implemented yet.
