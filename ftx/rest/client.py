@@ -772,10 +772,13 @@ class FtxClient:
         }
         return self._get(endpoint, params)
 
-    # POST /srm_stakes/stakes
-    # TODO: This method is not implemented yet.
-    def stake_request():
-        return
+    def stake_request(self, coin, size):
+        endpoint = 'srm_stakes/stakes'
+        payload = {
+            'coin': coin,
+            'size': size
+        }
+        return self._post(endpoint, payload)
 
     # Stats
 
