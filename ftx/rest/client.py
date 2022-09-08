@@ -264,10 +264,9 @@ class FtxClient:
         endpoint = 'nft/nfts'
         return self._get(endpoint)
 
-    # GET /nft/nft/{nft_id}
-    # TODO: This method is not implemented yet.
-    def get_nft_info():
-        return
+    def get_nft_info(self, nft_id):
+        endpoint = f'nft/nft/{nft_id}'
+        return self._get(endpoint)
 
     # GET /nft/{nft_id}/trades
     # TODO: This method is not implemented yet.
