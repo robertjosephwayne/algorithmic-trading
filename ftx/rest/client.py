@@ -556,10 +556,22 @@ class FtxClient:
         endpoint = f'twap_orders/{twap_order_id}/executions'
         return self._get(endpoint)
 
-    # POST /orders
-    # TODO: This method is not implemented yet.
-    def place_order():
-        return
+    def place_order(self, market, side, price, type, size, reduce_only=None, ioc=None, post_only=None, client_id=None, reject_on_price_band=None, reject_after_ts=None):
+        endpoint = 'orders'
+        payload = {
+            'market': market,
+            'side': side,
+            'price': price,
+            'type': type,
+            'size': size,
+            'reduceOnly': reduce_only,
+            'ioc': ioc,
+            'postOnly': post_only,
+            'clientId': client_id,
+            'rejectOnPriceBand': reject_on_price_band,
+            'rejectAfterTs': reject_after_ts
+        }
+        return self._post(endpoint, payload)
 
     # POST /conditional_orders
     # TODO: This method is not implemented yet.
