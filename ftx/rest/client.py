@@ -449,10 +449,9 @@ class FtxClient:
         endpoint = f'options/quotes/{quote_id}'
         return self._delete(endpoint)
 
-    # POST /options/quotes/<quote_id>/accept
-    # TODO: This method is not implemented yet.
-    def accept_options_quote():
-        return
+    def accept_options_quote(self, quote_id):
+        endpoint = f'options/quotes/{quote_id}/accept'
+        return self._post(endpoint)
 
     # GET /options/account_info
     # TODO: This method is not implemented yet.
