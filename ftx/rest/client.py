@@ -652,10 +652,15 @@ class FtxClient:
         endpoint = f'conditional_orders/{id}'
         return self._delete(endpoint)
 
-    # DELETE /orders
-    # TODO: This method is not implemented yet.
-    def cancel_all_orders():
-        return
+    def cancel_all_orders(self, market=None, side=None, conditional_orders_only=None, limit_orders_only=None):
+        endpoint = 'orders'
+        payload = {
+            'market': market,
+            'side': side,
+            'conditionalOrdersOnly': conditional_orders_only,
+            'limitOrdersOnly': limit_orders_only
+        }
+        return self._delete(endpoint, payload)
 
     # DELETE /orders/bulk
     # TODO: This method is not implemented yet.
