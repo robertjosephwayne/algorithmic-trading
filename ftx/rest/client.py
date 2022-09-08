@@ -3,42 +3,46 @@ import urllib.parse
 import hmac
 from requests import Request, Session, Response
 
+
 class FtxClient:
     _BASE_URL = 'https://ftx.com/api/'
 
-    def __init__(self, api_key = None, api_secret = None, subaccount_name = None):
+    def __init__(self, api_key=None, api_secret=None, subaccount_name=None):
         self._session = Session()
         self._api_key = api_key
         self._api_secret = api_secret
         self._subaccount_name = subaccount_name
-    
-    def _get(self, path, params = None):
+
+    def _get(self, path, params=None):
         return self._request('GET', path, params=params)
-    
-    def _post(self, path, params = None):
+
+    def _post(self, path, params=None):
         return self._request('POST', path, json=params)
-    
-    def _delete(self, path, params = None):
+
+    def _delete(self, path, params=None):
         return self._request('DELETE', path, json=params)
-    
+
     def _request(self, method, path, **kwargs):
         request = Request(method, self._BASE_URL + path, **kwargs)
         self._sign_request(request)
         response = self._session.send(request.prepare())
         return self._process_response(response)
-    
+
     def _sign_request(self, request):
         ts = int(time.time() * 1000)
         prepared = request.prepare()
-        signature_payload = f'{ts}{prepared.method}{prepared.path_url}'.encode()
+        signature_payload = f'{ts}{prepared.method}{prepared.path_url}'.encode(
+        )
         if prepared.body:
             signature_payload += prepared.body
-        signature = hmac.new(self._api_secret.encode(), signature_payload, 'sha256').hexdigest()
+        signature = hmac.new(self._api_secret.encode(),
+                             signature_payload, 'sha256').hexdigest()
         request.headers['FTX-KEY'] = self._api_key
         request.headers['FTX-SIGN'] = signature
         request.headers['FTX-TS'] = str(ts)
         if self._subaccount_name:
-            request.headers['FTX-SUBACCOUNT'] = urllib.parse.quote(self._subaccount_name)
+            request.headers['FTX-SUBACCOUNT'] = urllib.parse.quote(
+                self._subaccount_name)
 
     def _process_response(self, response):
         try:
@@ -65,7 +69,7 @@ class FtxClient:
         }
         return self._post(endpoint, payload)
 
-    def get_historical_balances_and_positions_snapshot(self, request_id, show_avg_price = None):
+    def get_historical_balances_and_positions_snapshot(self, request_id, show_avg_price=None):
         endpoint = f'historical_balances/requests/{request_id}'
         params = {
             'showAvgPrice': show_avg_price
@@ -89,7 +93,7 @@ class FtxClient:
             'leverage': leverage
         }
         return self._post(endpoint, payload)
-    
+
     # Convert
 
     def request_quote(self, from_coin, to_coin, size):
@@ -101,7 +105,7 @@ class FtxClient:
         }
         return self._post(endpoint, payload)
 
-    def get_quote_status(self, quote_id, market = None):
+    def get_quote_status(self, quote_id, market=None):
         endpoint = f'otc/quotes/{quote_id}'
         params = {
             'market': market
@@ -114,10 +118,10 @@ class FtxClient:
             'quoteId': quote_id
         }
         return self._post(endpoint, payload)
-    
+
     # Fills
 
-    def get_fills(self, market = None, start_time = None, end_time = None, order = None, order_id = None):
+    def get_fills(self, market=None, start_time=None, end_time=None, order=None, order_id=None):
         endpoint = 'fills'
         params = {
             'market': market,
@@ -130,7 +134,7 @@ class FtxClient:
 
     # Funding Payments
 
-    def get_funding_payments(self, start_time = None, end_time = None, future = None):
+    def get_funding_payments(self, start_time=None, end_time=None, future=None):
         endpoint = 'funding_payments'
         params = {
             'start_time': start_time,
@@ -138,7 +142,7 @@ class FtxClient:
             'future': future
         }
         return self._get(endpoint, params)
-    
+
     # Futures
 
     def list_all_futures(self):
@@ -153,7 +157,7 @@ class FtxClient:
         endpoint = f'futures/{future_name}/stats'
         return self._get(endpoint)
 
-    def get_funding_rates(self, start_time = None, end_time = None, future = None):
+    def get_funding_rates(self, start_time=None, end_time=None, future=None):
         endpoint = 'funding_rates'
         params = {
             'start_time': start_time,
@@ -170,7 +174,7 @@ class FtxClient:
         endpoint = 'expired_futures'
         return self._get(endpoint)
 
-    def get_historical_index(self, market_name, resolution, start_time = None, end_time = None):
+    def get_historical_index(self, market_name, resolution, start_time=None, end_time=None):
         endpoint = f'indexes/{market_name}/candles'
         params = {
             'resolution': resolution,
@@ -182,7 +186,7 @@ class FtxClient:
     def get_index_constituents(self, underlying):
         endpoint = f'index_constituents/{underlying}'
         return self._get(endpoint)
-    
+
     # Leveraged Tokens
 
     def list_leveraged_tokens(self):
@@ -220,28 +224,28 @@ class FtxClient:
     def request_etf_rebalance_info(self):
         endpoint = 'etfs/rebalance_info'
         return self._get(endpoint)
-    
+
     # Markets
 
     def get_markets(self):
         endpoint = 'markets'
         return self._get(endpoint)
 
-    def get_single_market(self, market_name, depth = None):
+    def get_single_market(self, market_name, depth=None):
         endpoint = f'markets/{market_name}'
         params = {
             'depth': depth
         }
         return self._get(endpoint, params)
 
-    def get_orderbook(self, market_name, depth = None):
+    def get_orderbook(self, market_name, depth=None):
         endpoint = f'markets/{market_name}/orderbook'
         params = {
             'depth': depth
         }
         return self._get(endpoint, params)
 
-    def get_trades(self, market_name, start_time = None, end_time = None):
+    def get_trades(self, market_name, start_time=None, end_time=None):
         endpoint = f'markets/{market_name}/trades'
         params = {
             'start_time': start_time,
@@ -249,7 +253,7 @@ class FtxClient:
         }
         return self._get(endpoint, params)
 
-    def get_historical_prices(self, market_name, resolution, start_time = None, end_time = None):
+    def get_historical_prices(self, market_name, resolution, start_time=None, end_time=None):
         endpoint = f'markets/{market_name}/candles'
         params = {
             'resolution': resolution,
@@ -257,7 +261,7 @@ class FtxClient:
             'end_time': end_time
         }
         return self._get(endpoint, params)
-    
+
     # NFTs
 
     def list_nfts(self):
