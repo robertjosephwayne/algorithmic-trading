@@ -304,10 +304,13 @@ class FtxClient:
         }
         return self._post(endpoint, payload)
 
-    # POST /nft/buy
-    # TODO: This method is not implemented yet.
-    def buy_nft():
-        return
+    def buy_nft(self, nft_id, price):
+        endpoint = 'nft/buy'
+        payload = {
+            'nftId': nft_id,
+            'price': price
+        }
+        return self._post(endpoint, payload)
 
     # POST /nft/auction
     # TODO: This method is not implemented yet.
