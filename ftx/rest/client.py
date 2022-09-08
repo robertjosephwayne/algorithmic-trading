@@ -364,10 +364,13 @@ class FtxClient:
         }
         return self._get(endpoint, params)
 
-    # GET /nft/fills
-    # TODO: This method is not implemented yet.
-    def get_nft_fills():
-        return
+    def get_nft_fills(self, start_time, end_time):
+        endpoint = 'nft/fills'
+        params = {
+            'start_time	': start_time,
+            'end_time': end_time
+        }
+        return self._get(endpoint, params)
 
     # POST /nft/redeem
     # TODO: This method is not implemented yet.
