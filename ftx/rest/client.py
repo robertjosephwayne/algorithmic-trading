@@ -628,10 +628,9 @@ class FtxClient:
         }
         return self._post(endpoint, payload)
 
-    # GET /orders/{order_id}
-    # TODO: This method is not implemented yet.
-    def get_order_status():
-        return
+    def get_order_status(self, order_id):
+        endpoint = f'orders/{order_id}'
+        return self._get(endpoint)
 
     # GET /orders/by_client_id/{client_order_id}
     # TODO: This method is not implemented yet.
