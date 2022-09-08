@@ -441,10 +441,9 @@ class FtxClient:
         }
         return self._post(endpoint, payload)
 
-    # GET /options/my_quotes
-    # TODO: This method is not implemented yet.
-    def get_my_quotes():
-        return
+    def get_my_quotes(self):
+        endpoint = 'options/my_quotes'
+        return self._get(endpoint)
 
     # DELETE /options/quotes/<quote_id>
     # TODO: This method is not implemented yet.
