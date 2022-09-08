@@ -328,10 +328,13 @@ class FtxClient:
         }
         return self._post(endpoint, payload)
 
-    # POST /nft/cancel_auction
-    # TODO: This method is not implemented yet.
-    def cancel_auction():
-        return
+    def cancel_auction(self, nft_id, reservation_price):
+        endpoint = 'nft/cancel_auction'
+        payload = {
+            'nftId': nft_id,
+            'reservationPrice': reservation_price
+        }
+        return self._post(endpoint, payload)
 
     # GET /nft/bids
     # TODO: This method is not implemented yet.
