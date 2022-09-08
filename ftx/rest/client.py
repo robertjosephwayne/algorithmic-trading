@@ -601,10 +601,14 @@ class FtxClient:
         }
         return self._post(endpoint, payload)
 
-    # POST /orders/{order_id}/modify
-    # TODO: This method is not implemented yet.
-    def modify_order():
-        return
+    def modify_order(self, order_id, price, size, client_id):
+        endpoint = f'orders/{order_id}/modify'
+        payload = {
+            'price': price,
+            'size': size,
+            'clientId': client_id
+        }
+        return self._post(endpoint, payload)
 
     # POST /orders/by_client_id/{client_order_id}/modify
     # TODO: This method is not implemented yet.
