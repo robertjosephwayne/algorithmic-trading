@@ -381,10 +381,9 @@ class FtxClient:
         }
         return self._post(endpoint, payload)
 
-    # GET /nft/gallery/{gallery_id}
-    # TODO: This method is not implemented yet.
-    def get_nft_gallery():
-        return
+    def get_nft_gallery(self, gallery_id):
+        endpoint = f'nft/gallery/{gallery_id}'
+        return self._get(endpoint)
 
     # GET /nft/gallery_settings
     # TODO: This method is not implemented yet.
