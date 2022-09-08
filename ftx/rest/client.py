@@ -457,10 +457,9 @@ class FtxClient:
         endpoint = 'options/account_info'
         return self._get(endpoint)
 
-    # GET /options/positions
-    # TODO: This method is not implemented yet.
-    def get_options_positions():
-        return
+    def get_options_positions(self):
+        endpoint = 'options/positions'
+        return self._get(endpoint)
 
     # GET /options/trades
     # TODO: This method is not implemented yet.
