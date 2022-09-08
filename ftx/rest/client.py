@@ -764,10 +764,13 @@ class FtxClient:
         endpoint = f'staking/unstake_requests/{request_id}'
         return self._delete(endpoint)
 
-    # GET /staking/staking_rewards
-    # TODO: This method is not implemented yet.
-    def get_staking_rewards():
-        return
+    def get_staking_rewards(self, start_time=None, end_time=None):
+        endpoint = 'staking/staking_rewards'
+        params = {
+            'start_time': start_time,
+            'end_time': end_time
+        }
+        return self._get(endpoint, params)
 
     # POST /srm_stakes/stakes
     # TODO: This method is not implemented yet.
