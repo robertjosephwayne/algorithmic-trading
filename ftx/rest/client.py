@@ -698,10 +698,12 @@ class FtxClient:
         endpoint = 'spot_margin/borrow_summary'
         return self._get(endpoint)
 
-    # GET /spot_margin/market_info?market={market}
-    # TODO: This method is not implemented yet.
-    def get_market_info():
-        return
+    def get_market_info(self, market):
+        endpoint = 'spot_margin/market_info'
+        params = {
+            'market': market
+        }
+        return self._get(endpoint, params)
 
     # GET /spot_margin/borrow_history
     # TODO: This method is not implemented yet.
