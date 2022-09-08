@@ -721,10 +721,9 @@ class FtxClient:
         }
         return self._get(endpoint, params)
 
-    # GET /spot_margin/offers
-    # TODO: This method is not implemented yet.
-    def get_lending_offers():
-        return
+    def get_lending_offers(self):
+        endpoint = 'spot_margin/offers'
+        return self._get(endpoint)
 
     # GET /spot_margin/lending_info
     # TODO: This method is not implemented yet.
