@@ -744,10 +744,9 @@ class FtxClient:
         endpoint = 'staking/stakes'
         return self._get(endpoint)
 
-    # GET /staking/unstake_requests
-    # TODO: This method is not implemented yet.
-    def get_unstake_requests():
-        return
+    def get_unstake_requests(self):
+        endpoint = 'staking/unstake_requests'
+        return self._get(endpoint)
 
     # GET /staking/balances
     # TODO: This method is not implemented yet.
