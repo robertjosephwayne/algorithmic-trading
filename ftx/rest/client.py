@@ -402,10 +402,9 @@ class FtxClient:
 
     # Options
 
-    # GET /options/requests
-    # TODO: This method is not implemented yet.
-    def list_quote_requests():
-        return
+    def list_quote_requests(self):
+        endpoint = 'options/requests'
+        return self._get(endpoint)
 
     # GET /options/my_requests
     # TODO: This method is not implemented yet.
