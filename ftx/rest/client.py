@@ -481,10 +481,13 @@ class FtxClient:
         endpoint = 'stats/24h_options_volume'
         return self._get(endpoint)
 
-    # GET /options/historical_volumes/BTC
-    # TODO: This method is not implemented yet.
-    def get_option_historical_volumes():
-        return
+    def get_option_historical_volumes(self, ticker, start_time=None, end_time=None):
+        endpoint = f'options/historical_volumes/{ticker}'
+        params = {
+            'start_time': start_time,
+            'end_time': end_time
+        }
+        return self._get(endpoint, params)
 
     # GET /options/open_interest/BTC
     # TODO: This method is not implemented yet.
