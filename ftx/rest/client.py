@@ -669,8 +669,12 @@ class FtxClient:
 
     # DELETE /orders/by_client_id/bulk
     # TODO: This method is not implemented yet.
-    def bulk_cancel_orders_by_client_id():
-        return
+    def bulk_cancel_orders_by_client_id(self, order_ids):
+        endpoint = 'orders/by_client_id/bulk'
+        payload = {
+            'orderIds': order_ids
+        }
+        return self._delete(endpoint, payload)
 
     # Spot Margin
 
