@@ -510,10 +510,16 @@ class FtxClient:
         }
         return self._get(endpoint, params)
 
-    # GET /orders/history?market={market}
-    # TODO: This method is not implemented yet.
-    def get_order_history():
-        return
+    def get_order_history(self, market=None, side=None, order_type=None, start_time=None, end_time=None):
+        endpoint = 'orders/history'
+        params = {
+            'market': market,
+            'side': side,
+            'orderType': order_type,
+            'start_time': start_time,
+            'end_time': end_time
+        }
+        return self._get(endpoint, params)
 
     # GET /conditional_orders?market={market}
     # TODO: This method is not implemented yet.
