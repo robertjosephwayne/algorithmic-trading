@@ -272,7 +272,7 @@ class FtxClient:
         endpoint = f'nft/nft/{nft_id}'
         return self._get(endpoint)
 
-    def get_nft_trades(self, nft_id, start_time, end_time):
+    def get_nft_trades(self, nft_id, start_time=None, end_time=None):
         endpoint = f'nft/{nft_id}/trades'
         params = {
             'start_time': start_time,
@@ -280,7 +280,7 @@ class FtxClient:
         }
         return self._get(endpoint, params)
 
-    def get_all_nft_trades(self, start_time, end_time):
+    def get_all_nft_trades(self, start_time=None, end_time=None):
         endpoint = 'nft/all_trades'
         params = {
             'start_time': start_time,
@@ -352,7 +352,7 @@ class FtxClient:
         }
         return self._post(endpoint, payload)
 
-    def get_nft_deposits(self, start_time, end_time):
+    def get_nft_deposits(self, start_time=None, end_time=None):
         endpoint = 'nft/deposits'
         params = {
             'start_time	': start_time,
@@ -360,7 +360,7 @@ class FtxClient:
         }
         return self._get(endpoint, params)
 
-    def get_nft_withdrawals(self, start_time, end_time):
+    def get_nft_withdrawals(self, start_time=None, end_time=None):
         endpoint = 'nft/withdrawals'
         params = {
             'start_time	': start_time,
@@ -368,7 +368,7 @@ class FtxClient:
         }
         return self._get(endpoint, params)
 
-    def get_nft_fills(self, start_time, end_time):
+    def get_nft_fills(self, start_time=None, end_time=None):
         endpoint = 'nft/fills'
         params = {
             'start_time	': start_time,
