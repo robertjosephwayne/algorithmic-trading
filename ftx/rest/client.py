@@ -784,41 +784,58 @@ class FtxClient:
 
     # GET /stats/latency_stats?days={days}&subaccount_nickname={subaccount_nickname}
     # TODO: This method is not implemented yet.
-    def get_latency_statistics():
-        return
-    
+    def get_latency_statistics(self, days=None, subaccount_nickname=None):
+        endpoint = 'stats/latency_stats'
+        params = {
+            'days': days,
+            'subaccount_nickname': subaccount_nickname
+        }
+        return self._get(endpoint, params)
+
     # Subaccounts
 
-    # GET /subaccounts
-    # TODO: This method is not implemented yet.
-    def get_all_subaccounts():
-        return
+    def get_all_subaccounts(self):
+        endpoint = 'subaccounts'
+        return self._get(endpoint)
 
-    # POST /subaccounts
-    # TODO: This method is not implemented yet.
-    def create_subaccount():
-        return
+    def create_subaccount(self, nickname):
+        endpoint = 'subaccounts'
+        payload = {
+            'nickname': nickname
+        }
+        return self._post(endpoint, payload)
 
-    # POST /subaccounts/update_name
-    # TODO: This method is not implemented yet.
-    def change_subaccount_name():
-        return
+    def change_subaccount_name(self, nickname, new_nickname):
+        endpoint = 'subaccounts/update_name'
+        payload = {
+            'nickname': nickname,
+            'newNickname': new_nickname
+        }
+        return self._post(endpoint, payload)
 
-    # DELETE /subaccounts
-    # TODO: This method is not implemented yet.
-    def delete_subaccount():
-        return
+    def delete_subaccount(self, nickname):
+        endpoint = 'subaccounts'
+        payload = {
+            'nickname': nickname
+        }
+        return self._delete(endpoint, payload)
 
-    # GET /subaccounts/{nickname}/balances
-    # TODO: This method is not implemented yet.
-    def get_subaccount_balances():
-        return
+    def get_subaccount_balances(self, nickname):
+        endpoint = f'subaccounts/{nickname}/balances'
+        return self._get(endpoint)
 
     # POST /subaccounts/transfer
     # TODO: This method is not implemented yet.
-    def transfer_between_subaccounts():
-        return
-    
+    def transfer_between_subaccounts(self, coin, size, source, destination):
+        endpoint = 'subaccounts/transfer'
+        payload = {
+            'coin': coin,
+            'size': size,
+            'source': source,
+            'destination': destination
+        }
+        return self._post(endpoint, payload)
+
     # Support Tickets
 
     # GET /support/tickets
