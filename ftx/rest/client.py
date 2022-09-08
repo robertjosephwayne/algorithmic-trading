@@ -632,10 +632,9 @@ class FtxClient:
         endpoint = f'orders/{order_id}'
         return self._get(endpoint)
 
-    # GET /orders/by_client_id/{client_order_id}
-    # TODO: This method is not implemented yet.
-    def get_order_status_by_client_id():
-        return
+    def get_order_status_by_client_id(self, client_order_id):
+        endpoint = f'orders/by_client_id/{client_order_id}'
+        return self._get(endpoint)
 
     # DELETE /orders/{order_id}
     # TODO: This method is not implemented yet.
