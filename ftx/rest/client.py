@@ -284,10 +284,9 @@ class FtxClient:
         }
         return self._get(endpoint, params)
 
-    # GET /nft/{nft_id}/account_info
-    # TODO: This method is not implemented yet.
-    def get_nft_account_info():
-        return
+    def get_nft_account_info(self, nft_id):
+        endpoint = f'nft/{nft_id}/account_info'
+        return self._get(endpoint)
 
     # GET /nft/collections
     # TODO: This method is not implemented yet.
