@@ -573,10 +573,17 @@ class FtxClient:
         }
         return self._post(endpoint, payload)
 
-    # POST /conditional_orders
-    # TODO: This method is not implemented yet.
-    def place_trigger_order():
-        return
+    def place_trigger_order(self, market, side, size, type, reduce_only=None, retry_until_filled=None):
+        endpoint = 'conditional_orders'
+        payload = {
+            'market': market,
+            'side': side,
+            'size': size,
+            'type': type,
+            'reduceOnly': reduce_only,
+            'retryUntilFilled': retry_until_filled
+        }
+        return self._post(endpoint, payload)
 
     # POST /twap_orders
     # TODO: This method is not implemented yet.
