@@ -552,10 +552,9 @@ class FtxClient:
         }
         return self._get(endpoint, params)
 
-    # GET /twap_orders/{twap_order_id}/executions
-    # TODO: This method is not implemented yet.
-    def get_twap_order_executions():
-        return
+    def get_twap_order_executions(self, twap_order_id):
+        endpoint = f'twap_orders/{twap_order_id}/executions'
+        return self._get(endpoint)
 
     # POST /orders
     # TODO: This method is not implemented yet.
