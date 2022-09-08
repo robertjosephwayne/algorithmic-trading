@@ -312,10 +312,14 @@ class FtxClient:
         }
         return self._post(endpoint, payload)
 
-    # POST /nft/auction
-    # TODO: This method is not implemented yet.
-    def create_auction():
-        return
+    def create_auction(self, initial_price, reservation_price, duration):
+        endpoint = 'nft/auction'
+        payload = {
+            'initialPrice': initial_price,
+            'reservationPrice': reservation_price,
+            'duration': duration
+        }
+        return self._post(endpoint, payload)
 
     # POST /nft/edit_auction
     # TODO: This method is not implemented yet.
