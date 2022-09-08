@@ -838,41 +838,48 @@ class FtxClient:
 
     # Support Tickets
 
-    # GET /support/tickets
-    # TODO: This method is not implemented yet.
-    def get_all_support_tickets():
-        return
+    def get_all_support_tickets(self):
+        endpoint = 'support/tickets'
+        return self._get(endpoint)
 
-    # GET /support/tickets/<int:ticket_id>/messages
-    # TODO: This method is not implemented yet.
-    def get_support_ticket_messages():
-        return
+    def get_support_ticket_messages(self, ticket_id):
+        endpoint = f'support/tickets/{ticket_id}/messages'
+        return self._get(endpoint)
 
-    # POST /support/tickets
-    # TODO: This method is not implemented yet.
-    def create_support_ticket():
-        return
+    def create_support_ticket(self, title, category, message, fiat_deposit_id=None, support_file=None):
+        endpoint = 'support/tickets'
+        payload = {
+            'title': title,
+            'category': category,
+            'message': message,
+            'fiatDepositId': fiat_deposit_id,
+            'supportFile': support_file
+        }
+        return self._post(endpoint, payload)
 
-    # POST /support/tickets/<int:ticket_id>/messages
-    # TODO: This method is not implemented yet.
-    def send_support_message():
-        return
+    def send_support_message(self, ticket_id, message, support_file=None):
+        endpoint = f'support/tickets/{ticket_id}/messages'
+        payload = {
+            'message': message,
+            'supportFile': support_file
+        }
+        return self._post(endpoint, payload)
 
-    # POST /support/tickets/<int:ticket_id>/status
-    # TODO: This method is not implemented yet.
-    def update_support_ticket_status():
-        return
+    def update_support_ticket_status(self, ticket_id, status):
+        endpoint = f'support/tickets/{ticket_id}/status'
+        payload = {
+            'status': status
+        }
+        return self._post(endpoint, payload)
 
-    # GET /support/tickets/count_unread
-    # TODO: This method is not implemented yet.
-    def count_total_number_of_unread_support_messages():
-        return
+    def count_total_number_of_unread_support_messages(self):
+        endpoint = 'support/tickets/count_unread'
+        return self._get(endpoint)
 
-    # POST /support/tickets/<int:ticket_id>/mark_as_read
-    # TODO: This method is not implemented yet.
-    def mark_support_messages_read():
-        return
-    
+    def mark_support_messages_read(self, ticket_id):
+        endpoint = f'support/tickets/{ticket_id}/mark_as_read'
+        return self._post(endpoint)
+
     # Wallet
 
     # GET /wallet/coins
