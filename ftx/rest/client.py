@@ -260,10 +260,9 @@ class FtxClient:
     
     # NFTs
 
-    # GET /nft/nfts
-    # TODO: This method is not implemented yet.
-    def list_nfts():
-        return
+    def list_nfts(self):
+        endpoint = 'nft/nfts'
+        return self._get(endpoint)
 
     # GET /nft/nft/{nft_id}
     # TODO: This method is not implemented yet.
