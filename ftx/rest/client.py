@@ -372,10 +372,14 @@ class FtxClient:
         }
         return self._get(endpoint, params)
 
-    # POST /nft/redeem
-    # TODO: This method is not implemented yet.
-    def redeem_nft():
-        return
+    def redeem_nft(self, nft_id, address, notes):
+        endpoint = 'nft/redeem'
+        payload = {
+            'nftId': nft_id,
+            'address': address,
+            'notes': notes
+        }
+        return self._post(endpoint, payload)
 
     # GET /nft/gallery/{gallery_id}
     # TODO: This method is not implemented yet.
