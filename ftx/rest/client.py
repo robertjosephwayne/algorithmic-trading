@@ -529,10 +529,9 @@ class FtxClient:
         }
         return self._get(endpoint, params)
 
-    # GET /conditional_orders/{conditional_order_id}/triggers
-    # TODO: This method is not implemented yet.
-    def get_trigger_order_triggers():
-        return
+    def get_trigger_order_triggers(self, conditional_order_id):
+        endpoint = f'conditional_orders/{conditional_order_id}/triggers'
+        return self._get(endpoint)
 
     # GET /conditional_orders/history?market={market}
     # TODO: This method is not implemented yet.
