@@ -348,10 +348,13 @@ class FtxClient:
         }
         return self._post(endpoint, payload)
 
-    # GET /nft/deposits
-    # TODO: This method is not implemented yet.
-    def get_nft_deposits():
-        return
+    def get_nft_deposits(self, start_time, end_time):
+        endpoint = 'nft/deposits'
+        params = {
+            'start_time	': start_time,
+            'end_time': end_time
+        }
+        return self._get(endpoint, params)
 
     # GET /nft/withdrawals
     # TODO: This method is not implemented yet.
