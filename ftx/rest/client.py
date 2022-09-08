@@ -648,10 +648,9 @@ class FtxClient:
         endpoint = f'orders/by_client_id/{client_order_id}'
         return self._delete(endpoint)
 
-    # DELETE /conditional_orders/{id}
-    # TODO: This method is not implemented yet.
-    def cancel_open_trigger_order():
-        return
+    def cancel_open_trigger_order(self, id):
+        endpoint = f'conditional_orders/{id}'
+        return self._delete(endpoint)
 
     # DELETE /orders
     # TODO: This method is not implemented yet.
