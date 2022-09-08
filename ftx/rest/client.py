@@ -477,10 +477,9 @@ class FtxClient:
         }
         return self._get(endpoint, params)
 
-    # GET /stats/24h_options_volume
-    # TODO: This method is not implemented yet.
-    def get_24h_option_volume():
-        return
+    def get_24h_option_volume(self):
+        endpoint = 'stats/24h_options_volume'
+        return self._get(endpoint)
 
     # GET /options/historical_volumes/BTC
     # TODO: This method is not implemented yet.
