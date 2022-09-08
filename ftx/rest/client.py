@@ -336,10 +336,9 @@ class FtxClient:
         }
         return self._post(endpoint, payload)
 
-    # GET /nft/bids
-    # TODO: This method is not implemented yet.
-    def get_bids():
-        return
+    def get_bids(self):
+        endpoint = 'nft/bids'
+        return self._get(endpoint)
 
     # POST /nft/bids
     # TODO: This method is not implemented yet.
