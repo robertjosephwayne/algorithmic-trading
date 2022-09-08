@@ -585,10 +585,21 @@ class FtxClient:
         }
         return self._post(endpoint, payload)
 
-    # POST /twap_orders
-    # TODO: This method is not implemented yet.
-    def place_twap_order():
-        return
+    def place_twap_order(self, market, side, size, type, duration_seconds, randomize_size, max_spread=None, max_individual_order_size=None, max_distance_through_book=None, price_bound=None):
+        endpoint = 'twap_orders'
+        payload = {
+            'market': market,
+            'side': side,
+            'size': size,
+            'type': type,
+            'durationSeconds': duration_seconds,
+            'randomizeSize': randomize_size,
+            'maxSpread': max_spread,
+            'maxIndividualOrderSize': max_individual_order_size,
+            'maxDistanceThroughBook': max_distance_through_book,
+            'priceBound': price_bound
+        }
+        return self._post(endpoint, payload)
 
     # POST /orders/{order_id}/modify
     # TODO: This method is not implemented yet.
