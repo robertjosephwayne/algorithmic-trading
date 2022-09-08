@@ -489,16 +489,18 @@ class FtxClient:
         }
         return self._get(endpoint, params)
 
-    # GET /options/open_interest/BTC
-    # TODO: This method is not implemented yet.
-    def get_option_open_interest():
-        return
+    def get_option_open_interest(self, ticker):
+        endpoint = f'options/open_interest/{ticker}'
+        return self._get(endpoint)
 
-    # GET options/historical_open_interest/BTC
-    # TODO: This method is not implemented yet.
-    def get_option_historical_open_interest():
-        return
-    
+    def get_option_historical_open_interest(self, ticker, start_time=None, end_time=None):
+        endpoint = f'options/historical_open_interest/{ticker}'
+        params = {
+            'start_time': start_time,
+            'end_time': end_time
+        }
+        return self._get(endpoint, params)
+
     # Orders
 
     # GET /orders?market={market}
