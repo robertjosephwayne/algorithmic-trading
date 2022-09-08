@@ -533,10 +533,17 @@ class FtxClient:
         endpoint = f'conditional_orders/{conditional_order_id}/triggers'
         return self._get(endpoint)
 
-    # GET /conditional_orders/history?market={market}
-    # TODO: This method is not implemented yet.
-    def get_trigger_order_history():
-        return
+    def get_trigger_order_history(self, market=None, start_time=None, end_time=None, side=None, type=None, order_type=None):
+        endpoint = 'conditional_orders/history'
+        params = {
+            'market': market,
+            'start_time': start_time,
+            'end_time': end_time,
+            'side': side,
+            'type': type,
+            'orderType': order_type
+        }
+        return self._get(endpoint, params)
 
     # GET /twap_orders?market={market}
     # TODO: This method is not implemented yet.
