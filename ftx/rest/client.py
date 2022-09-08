@@ -268,10 +268,13 @@ class FtxClient:
         endpoint = f'nft/nft/{nft_id}'
         return self._get(endpoint)
 
-    # GET /nft/{nft_id}/trades
-    # TODO: This method is not implemented yet.
-    def get_nft_trades():
-        return
+    def get_nft_trades(self, nft_id, start_time, end_time):
+        endpoint = f'nft/{nft_id}/trades'
+        params = {
+            'start_time': start_time,
+            'end_time': end_time
+        }
+        return self._get(endpoint, params)
 
     # GET /nft/all_trades
     # TODO: This method is not implemented yet.
