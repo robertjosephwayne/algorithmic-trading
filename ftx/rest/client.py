@@ -705,10 +705,13 @@ class FtxClient:
         }
         return self._get(endpoint, params)
 
-    # GET /spot_margin/borrow_history
-    # TODO: This method is not implemented yet.
-    def get_my_borrow_history():
-        return
+    def get_my_borrow_history(self, start_time=None, end_time=None):
+        endpoint = 'spot_margin/borrow_history'
+        params = {
+            'start_time': start_time,
+            'end_time': end_time
+        }
+        return self._get(endpoint, params)
 
     # GET /spot_margin/lending_history
     # TODO: This method is not implemented yet.
