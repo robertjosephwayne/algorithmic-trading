@@ -434,10 +434,12 @@ class FtxClient:
         endpoint = f'options/requests/{request_id}/quotes'
         return self._get(endpoint)
 
-    # POST /options/requests/{request_id}/quotes
-    # TODO: This method is not implemented yet.
-    def create_quote():
-        return
+    def create_quote(self, request_id, price):
+        endpoint = f'options/requests/{request_id}/quotes'
+        payload = {
+            'price': price
+        }
+        return self._post(endpoint, payload)
 
     # GET /options/my_quotes
     # TODO: This method is not implemented yet.
