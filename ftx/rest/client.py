@@ -760,10 +760,9 @@ class FtxClient:
         }
         return self._post(endpoint, payload)
 
-    # DELETE /staking/unstake_requests/{request_id}
-    # TODO: This method is not implemented yet.
-    def cancel_unstake_request():
-        return
+    def cancel_unstake_request(self, request_id):
+        endpoint = f'staking/unstake_requests/{request_id}'
+        return self._delete(endpoint)
 
     # GET /staking/staking_rewards
     # TODO: This method is not implemented yet.
