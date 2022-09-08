@@ -292,10 +292,9 @@ class FtxClient:
         endpoint = 'nft/collections'
         return self._get(endpoint)
 
-    # GET /nft/balances
-    # TODO: This method is not implemented yet.
-    def get_nft_balances():
-        return
+    def get_nft_balances(self):
+        endpoint = 'nft/balances'
+        return self._get(endpoint)
 
     # POST /nft/offer
     # TODO: This method is not implemented yet.
