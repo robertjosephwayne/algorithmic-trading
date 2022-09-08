@@ -469,10 +469,13 @@ class FtxClient:
         }
         return self._get(endpoint, params)
 
-    # GET /options/fills
-    # TODO: This method is not implemented yet.
-    def get_options_fills():
-        return
+    def get_options_fills(self, start_time=None, end_time=None):
+        endpoint = 'options/fills'
+        params = {
+            'start_time': start_time,
+            'end_time': end_time
+        }
+        return self._get(endpoint, params)
 
     # GET /stats/24h_options_volume
     # TODO: This method is not implemented yet.
