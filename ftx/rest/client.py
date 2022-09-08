@@ -426,10 +426,9 @@ class FtxClient:
         }
         return self._post(endpoint, payload)
 
-    # DELETE /options/requests/{request_id}
-    # TODO: This method is not implemented yet.
-    def cancel_quote_request():
-        return
+    def cancel_quote_request(self, request_id):
+        endpoint = f'options/requests/{request_id}'
+        return self._delete(endpoint)
 
     # GET /options/requests/{request_id}/quotes
     # TODO: This method is not implemented yet.
