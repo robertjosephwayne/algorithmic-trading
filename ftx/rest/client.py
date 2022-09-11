@@ -1,5 +1,4 @@
 import time
-from tracemalloc import start
 import urllib.parse
 import hmac
 from requests import Request, Session, Response
