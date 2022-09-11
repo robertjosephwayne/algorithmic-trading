@@ -954,9 +954,12 @@ class FtxClient:
         }
         return self._get(endpoint, params)
 
-    def get_saved_addresses(self):
+    def get_saved_addresses(self, coin=None):
         endpoint = 'wallet/saved_addresses'
-        return self._get(endpoint)
+        params = {
+            'coin': coin
+        }
+        return self._get(endpoint, params)
 
     # POST /wallet/saved_addresses
     # TODO: This method is not implemented yet.
