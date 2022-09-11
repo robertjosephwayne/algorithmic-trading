@@ -662,15 +662,8 @@ class FtxClient:
         }
         return self._delete(endpoint, payload)
 
-    # DELETE /orders/bulk
-    # TODO: This method is not implemented yet.
-    def bulk_cancel_orders():
-        return
-
-    # DELETE /orders/by_client_id/bulk
-    # TODO: This method is not implemented yet.
-    def bulk_cancel_orders_by_client_id(self, order_ids):
-        endpoint = 'orders/by_client_id/bulk'
+    def bulk_cancel_orders(self, order_ids):
+        endpoint = 'orders/bulk'
         payload = {
             'orderIds': order_ids
         }
