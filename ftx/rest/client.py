@@ -943,9 +943,16 @@ class FtxClient:
         }
         return self._get(endpoint, params)
 
-    def get_withdrawal_fees(self):
+    def get_withdrawal_fees(self, coin, size, address, tag=None, method=None):
         endpoint = 'wallet/withdrawal_fee'
-        return self._get(endpoint)
+        params = {
+            'coin': coin,
+            'size': size,
+            'address': address,
+            'tag': tag,
+            'method': method
+        }
+        return self._get(endpoint, params)
 
     def get_saved_addresses(self):
         endpoint = 'wallet/saved_addresses'
