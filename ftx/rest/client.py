@@ -975,10 +975,9 @@ class FtxClient:
         }
         return self._post(endpoint, payload)
 
-    # DELETE /wallet/saved_addresses/{saved_address_id}
-    # TODO: This method is not implemented yet.
-    def delete_saved_addresses():
-        return
+    def delete_saved_addresses(self, saved_address_id):
+        endpoint = f'wallet/saved_addresses/{saved_address_id}'
+        return self._delete(endpoint)
 
     # POST /sen/deposits/{sen_link_id}
     # TODO: This method is not implemented yet.
