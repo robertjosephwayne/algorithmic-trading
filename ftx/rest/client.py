@@ -993,10 +993,12 @@ class FtxClient:
         }
         return self._post(endpoint, payload)
 
-    # POST /signet/deposits/{signet_link_id}
-    # TODO: This method is not implemented yet.
-    def register_signet_deposit():
-        return
+    def register_signet_deposit(self, signet_link_id, size):
+        endpoint = f'signet/deposits/{signet_link_id}'
+        payload = {
+            'size': size
+        }
+        return self._post(endpoint, payload)
 
     # POST /signet/withdrawals/{signet_link_id}
     # TODO: This method is not implemented yet.
