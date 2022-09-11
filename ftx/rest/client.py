@@ -961,10 +961,19 @@ class FtxClient:
         }
         return self._get(endpoint, params)
 
-    # POST /wallet/saved_addresses
-    # TODO: This method is not implemented yet.
-    def create_saved_addresses():
-        return
+    def create_saved_addresses(self, coin, address, wallet, address_name, is_primetrust, tag=None, whitelist=None, code=None):
+        endpoint = 'wallet/saved_addresses'
+        payload = {
+            'coin': coin,
+            'address': address,
+            'wallet': wallet,
+            'addressName': address_name,
+            'isPrimetrust': is_primetrust,
+            'tag': tag,
+            'whitelist': whitelist,
+            'code': code
+        }
+        return self._post(endpoint, payload)
 
     # DELETE /wallet/saved_addresses/{saved_address_id}
     # TODO: This method is not implemented yet.
