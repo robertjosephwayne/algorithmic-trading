@@ -47,7 +47,6 @@ class FtxClient:
     def _process_response(self, response):
         try:
             data = response.json()
-            print(data)
         except ValueError:
             response.raise_for_status()
             raise
@@ -556,7 +555,7 @@ class FtxClient:
         endpoint = f'twap_orders/{twap_order_id}/executions'
         return self._get(endpoint)
 
-    def place_order(self, market, side, price, type, size, reduce_only=None, ioc=None, post_only=None, client_id=None, reject_on_price_band=None, reject_after_ts=None):
+    def place_order(self, market, side, price, type, size, reduce_only=False, ioc=False, post_only=False, client_id=None, reject_on_price_band=False, reject_after_ts=None):
         endpoint = 'orders'
         payload = {
             'market': market,
