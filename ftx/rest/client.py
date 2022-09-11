@@ -935,9 +935,13 @@ class FtxClient:
         }
         return self._post(endpoint, payload)
 
-    def get_airdrops(self):
+    def get_airdrops(self, start_time, end_time):
         endpoint = 'wallet/airdrops'
-        return self._get(endpoint)
+        params = {
+            'start_time': start_time,
+            'end_time': end_time
+        }
+        return self._get(endpoint, params)
 
     def get_withdrawal_fees(self):
         endpoint = 'wallet/withdrawal_fee'
