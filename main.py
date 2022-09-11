@@ -12,6 +12,11 @@ api_secret = os.environ.get("API_SECRET")
 
 @app.route('/')
 def main():
+    return 'Success'
+
+
+@app.route('/test')
+def test():
     ftx = FtxClient(api_key, api_secret)
     balances = ftx.get_balances()
     print(balances)
