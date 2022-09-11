@@ -669,6 +669,13 @@ class FtxClient:
         }
         return self._delete(endpoint, payload)
 
+    def bulk_cancel_orders_by_client_id(self, client_order_ids):
+        endpoint = 'bulk_orders_by_client_id'
+        payload = {
+            'clientOrderIds': client_order_ids
+        }
+        return self._delete(endpoint, payload)
+
     # Spot Margin
 
     def get_lending_history(self, start_time=None, end_time=None):
