@@ -922,10 +922,18 @@ class FtxClient:
         }
         return self._get(endpoint, params)
 
-    # POST /wallet/withdrawals
-    # TODO: This method is not implemented yet.
-    def request_withdrawal():
-        return
+    def request_withdrawal(self, coin, size, address, tag=None, method=None, password=None, code=None):
+        endpoint = 'wallet/withdrawals'
+        payload = {
+            'coin': coin,
+            'size': size,
+            'address': address,
+            'tag': tag,
+            'method': method,
+            'password': password,
+            'code': code
+        }
+        return self._post(endpoint, payload)
 
     def get_airdrops(self):
         endpoint = 'wallet/airdrops'
