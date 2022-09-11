@@ -891,10 +891,12 @@ class FtxClient:
         endpoint = 'wallet/all_balances'
         return self._get(endpoint)
 
-    # GET /wallet/deposit_address/{coin}?method={method}
-    # TODO: This method is not implemented yet.
-    def get_deposit_address():
-        return
+    def get_deposit_address(self, coin, method=None):
+        endpoint = f'wallet/deposit_address/{coin}'
+        params = {
+            'method': method
+        }
+        return self._get(endpoint, params)
 
     # POST /wallet/deposit_address/list
     # TODO: This method is not implemented yet.
