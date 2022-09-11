@@ -2,6 +2,9 @@ import time
 import urllib.parse
 import hmac
 from requests import Request, Session, Response
+import logging
+
+logger = logging.getLogger()
 
 
 class FtxClient:
@@ -12,6 +15,8 @@ class FtxClient:
         self._api_key = api_key
         self._api_secret = api_secret
         self._subaccount_name = subaccount_name
+
+        logger.info('FTX client successfully initialized')
 
     def _get(self, path, params=None):
         return self._request('GET', path, params=params)

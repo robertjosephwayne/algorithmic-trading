@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 import pandas as pd
-from ftx.rest.client import FtxClient
+from connectors.ftx.rest.client import FtxClient
 import tkinter as tk
 import logging
 import pprint
