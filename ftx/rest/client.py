@@ -914,9 +914,13 @@ class FtxClient:
         }
         return self._get(endpoint, params)
 
-    def get_withdrawal_history(self):
+    def get_withdrawal_history(self, start_time, end_time):
         endpoint = 'wallet/withdrawals'
-        return self._get(endpoint)
+        params = {
+            'start_time': start_time,
+            'end_time': end_time
+        }
+        return self._get(endpoint, params)
 
     # POST /wallet/withdrawals
     # TODO: This method is not implemented yet.
