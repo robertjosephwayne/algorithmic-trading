@@ -1000,7 +1000,9 @@ class FtxClient:
         }
         return self._post(endpoint, payload)
 
-    # POST /signet/withdrawals/{signet_link_id}
-    # TODO: This method is not implemented yet.
-    def request_signet_withdrawal():
-        return
+    def request_signet_withdrawal(self, signet_link_id, size):
+        endpoint = f'signet/withdrawals/{signet_link_id}'
+        payload = {
+            'size': size
+        }
+        return self._post(endpoint, payload)
