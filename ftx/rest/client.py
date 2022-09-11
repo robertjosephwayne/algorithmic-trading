@@ -1,4 +1,5 @@
 import time
+from tracemalloc import start
 import urllib.parse
 import hmac
 from requests import Request, Session, Response
@@ -782,8 +783,6 @@ class FtxClient:
 
     # Stats
 
-    # GET /stats/latency_stats?days={days}&subaccount_nickname={subaccount_nickname}
-    # TODO: This method is not implemented yet.
     def get_latency_statistics(self, days=None, subaccount_nickname=None):
         endpoint = 'stats/latency_stats'
         params = {
@@ -824,8 +823,6 @@ class FtxClient:
         endpoint = f'subaccounts/{nickname}/balances'
         return self._get(endpoint)
 
-    # POST /subaccounts/transfer
-    # TODO: This method is not implemented yet.
     def transfer_between_subaccounts(self, coin, size, source, destination):
         endpoint = 'subaccounts/transfer'
         payload = {
@@ -882,20 +879,17 @@ class FtxClient:
 
     # Wallet
 
-    # GET /wallet/coins
-    # TODO: This method is not implemented yet.
-    def get_coins():
-        return
+    def get_coins(self):
+        endpoint = 'wallet/coins'
+        return self._get(endpoint)
 
-    # GET /wallet/balances
-    # TODO: This method is not implemented yet.
-    def get_balances():
-        return
+    def get_balances(self):
+        endpoint = 'wallet/balances'
+        return self._get(endpoint)
 
-    # GET /wallet/all_balances
-    # TODO: This method is not implemented yet.
-    def get_balances_of_all_accounts():
-        return
+    def get_balances_of_all_accounts(self):
+        endpoint = 'wallet/all_balances'
+        return self._get(endpoint)
 
     # GET /wallet/deposit_address/{coin}?method={method}
     # TODO: This method is not implemented yet.
@@ -907,35 +901,30 @@ class FtxClient:
     def get_deposit_address_list():
         return
 
-    # GET /wallet/deposits
-    # TODO: This method is not implemented yet.
-    def get_deposit_history():
-        return
+    def get_deposit_history(self):
+        endpoint = 'wallet/deposits'
+        return self._get(endpoint)
 
-    # GET /wallet/withdrawals
-    # TODO: This method is not implemented yet.
-    def get_withdrawal_history():
-        return
+    def get_withdrawal_history(self):
+        endpoint = 'wallet/withdrawals'
+        return self._get(endpoint)
 
     # POST /wallet/withdrawals
     # TODO: This method is not implemented yet.
     def request_withdrawal():
         return
 
-    # GET /wallet/airdrops
-    # TODO: This method is not implemented yet.
-    def get_airdrops():
-        return
+    def get_airdrops(self):
+        endpoint = 'wallet/airdrops'
+        return self._get(endpoint)
 
-    # GET /wallet/withdrawal_fee
-    # TODO: This method is not implemented yet.
-    def get_withdrawal_fees():
-        return
+    def get_withdrawal_fees(self):
+        endpoint = 'wallet/withdrawal_fee'
+        return self._get(endpoint)
 
-    # GET /wallet/saved_addresses
-    # TODO: This method is not implemented yet.
-    def get_saved_addresses():
-        return
+    def get_saved_addresses(self):
+        endpoint = 'wallet/saved_addresses'
+        return self._get(endpoint)
 
     # POST /wallet/saved_addresses
     # TODO: This method is not implemented yet.
