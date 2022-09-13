@@ -4,4 +4,4 @@ pandas
 python-dotenv
 requests
 threading
-websocket
+websocket-client
