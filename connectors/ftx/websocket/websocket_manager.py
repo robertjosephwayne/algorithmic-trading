@@ -2,7 +2,6 @@ import json
 import time
 from threading import Thread, Lock
 from websocket import WebSocketApp
-import ssl
 
 
 class FtxWebSocketManager:
