@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 import pandas as pd
 from connectors.ftx.rest.client import FtxClient
+from connectors.ftx.websocket.client import FtxWebSocketClient
 import tkinter as tk
 import logging
 import pprint
@@ -28,11 +29,9 @@ api_secret = os.environ.get("API_SECRET")
 if __name__ == '__main__':
 
     ftx = FtxClient(api_key, api_secret)
-    markets = ftx.get_markets()
-    for market in markets:
-        if market['type'] == 'spot':
-            print(market['name'], market['type'])
-
-    # root = tk.Tk()
-    # root.mainloop()
+    websocket = FtxWebSocketClient(api_key, api_secret)
+    result = websocket.get_ticker('BTC-PERP')
+    while True:
+        btc_perp = websocket.get_ticker('BTC-PERP')
+        print(btc_perp)
 
