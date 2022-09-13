@@ -59,8 +59,7 @@ class FtxWebSocketManager:
 
     def _run_websocket(self, ws):
         try:
-            # TODO - Enable SSL for WebSocket connection
-            ws.run_forever(sslopt={'cert_reqs': ssl.CERT_NONE})
+            ws.run_forever()
         except Exception as e:
             raise Exception(f'Unexpected error while running websocket: {e}')
         finally:
