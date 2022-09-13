@@ -2,6 +2,7 @@ import json
 import time
 from threading import Thread, Lock
 from websocket import WebSocketApp
+import ssl
 
 
 class FtxWebSocketManager:
@@ -58,7 +59,8 @@ class FtxWebSocketManager:
 
     def _run_websocket(self, ws):
         try:
-            ws.run_forever()
+            # TODO - Enable SSL for WebSocket connection
+            ws.run_forever(sslopt={'cert_reqs': ssl.CERT_NONE})
         except Exception as e:
             raise Exception(f'Unexpected error while running websocket: {e}')
         finally:
